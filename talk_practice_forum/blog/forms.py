@@ -15,3 +15,15 @@ class PostForm(forms.ModelForm):
             'body': forms.Textarea(attrs={'class':'form-control', 'placeholder':'Add your content here...'}),
         }
              
+
+class EditForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = ('title', 'subtitle', 'body')
+
+        # Bootstrap styling for edit post form. Attaches to the html tag class to add bootstrap css styles of 'form-control'
+        widgets = {
+            'title': forms.TextInput(attrs={'class':'form-control', 'placeholder': 'Add a concise title'}),
+            'subtitle': forms.TextInput(attrs={'class':'form-control', 'placeholder':'What is your post about?'}),
+            'body': forms.Textarea(attrs={'class':'form-control', 'placeholder':'Add your content here...'}),
+        }

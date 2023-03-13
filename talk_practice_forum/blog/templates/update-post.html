@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %} EDIT YOUR POST... {% endblock %}
+{% block content %}
+    
+
+<h1>UPDATE A POST...</h1>
+
+<div class="form-group">
+    <form method="POST">
+    {% csrf_token %}
+
+    <!-- <h3>POST TITLE:</h3>
+    {{ form.title }}
+    <br>
+    <h5>POST SUBTITLE:</h5>
+    {{ form.subtitle }}
+    <br>
+    {{ form.author }}
+    <br>
+    {{ form.body }}
+    <br> -->
+
+    {{form.as_p}}
+    <button class="btn btn-secondary">UPDATE</button>
+</div>
+
+</form>
+
+{% endblock %}
