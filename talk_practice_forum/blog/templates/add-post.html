@@ -5,21 +5,24 @@
 
 <h1>ADD A POST...</h1>
 
-<form method="POST">
-{% csrf_token %}
+<div class="form-group">
+    <form method="POST">
+    {% csrf_token %}
 
-<h3>POST TITLE:</h3>
-{{ form.title }}
-<br>
-<h5>POST SUBTITLE:</h5>
-{{ form.subtitle }}
-<br>
-{{ form.author }}
-<br>
-{{ form.body }}
-<br>
-<button class="btn btn-secondary">PUBLISH</button>
+    <!-- <h3>POST TITLE:</h3>
+    {{ form.title }}
+    <br>
+    <h5>POST SUBTITLE:</h5>
+    {{ form.subtitle }}
+    <br>
+    {{ form.author }}
+    <br>
+    {{ form.body }}
+    <br> -->
 
+    {{form.as_p}}
+    <button class="btn btn-secondary">PUBLISH</button>
+</div>
 
 </form>
 
