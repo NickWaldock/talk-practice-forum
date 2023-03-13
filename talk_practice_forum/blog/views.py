@@ -1,16 +1,25 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, CreateView
 from .models import Post
 
 # def home(request):
 #     return render(request, 'home.html', {})
 
 
+# Lists all blog posts
 class HomeView(ListView):
     model = Post
     template_name = 'home.html'
 
 
+# Shows a single blog post
 class ArticleDetailView(DetailView):
     model = Post
     template_name = 'article-detail.html'
+
+
+# Creates a new blog post
+class AddPostView(CreateView):
+    model = Post
+    template_name = 'add-post.html'
+    fields = ('title', 'subtitle', 'body')
