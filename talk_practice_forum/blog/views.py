@@ -39,6 +39,13 @@ class UpdatePostView(UpdateView):
     # fields = ['title', 'subtitle', 'body']
 
 
+# Deletes a blog post
+class DeletePostView(DeleteView):
+    model = Post
+    template_name = 'delete-post.html'
+    success_url = reverse_lazy('home')
+
+
 # Adds a category to the category list
 class AddCategoryView(CreateView):
     model = Category
@@ -46,8 +53,7 @@ class AddCategoryView(CreateView):
     fields = '__all__'
 
 
-# Deletes a blog post
-class DeletePostView(DeleteView):
-    model = Post
-    template_name = 'delete-post.html'
-    success_url = reverse_lazy('home')
+# View to make and edit the list of categories
+def CategoryView(request, categories):
+    category_posts = Post.objects.filter(category=categories)
+    return render(request, 'categories.html', {'categories': categories.title(), 'category_posts': category_posts})
