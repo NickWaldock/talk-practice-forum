@@ -10,8 +10,10 @@
     <br>
     {{ post.subtitle }}
     <br>
+    {% if user.is_authenticated %}
     <small><a href="{% url 'update-post' post.pk %}">EDIT POST</a></small>
     <small><a href="{% url 'delete-post' post.pk %}">DELETE POST</a></small>
+    {% endif %}
 <br>
 <br>
 

@@ -2,7 +2,7 @@
 {% block title %} EDIT YOUR POST... {% endblock %}
 {% block content %}
     
-
+{% if user.is_authenticated %}
 <h1>DELETE A POST</h1>
 
 <h4>Delete: {{ post.title }}</h4>
@@ -13,7 +13,11 @@
     <p>Are you sure you want to delete this post?</p>
     <button class="btn btn-danger">DELETE</button>
 </div>
-
 </form>
-
+{% else %}
+<p>You need to login or register to begin editing and creating posts</p>
+<button class="btn btn-secondary text-decoration-none"><a href="{% url 'register' %}">REGISTER</a></button>
+<br>
+<button class="btn btn-secondary text-decoration-none"><a href="{% url 'login' %}">LOGIN</a></button>
+{% endif %}
 {% endblock %}

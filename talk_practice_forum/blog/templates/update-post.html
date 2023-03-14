@@ -1,15 +1,15 @@
 {% extends 'base.html' %}
 {% block title %} EDIT YOUR POST... {% endblock %}
 {% block content %}
-    
 
+{% if user.is_authenticated %}
 <h1>UPDATE A POST...</h1>
 
 <div class="form-group">
     <form method="POST">
-    {% csrf_token %}
+        {% csrf_token %}
 
-    <!-- <h3>POST TITLE:</h3>
+        <!-- <h3>POST TITLE:</h3>
     {{ form.title }}
     <br>
     <h5>POST SUBTITLE:</h5>
@@ -20,11 +20,16 @@
     {{ form.body }}
     <br> -->
 
-    {{form.as_p}}
-    <button class="btn btn-secondary">UPDATE</button>
-    <button class="btn btn-danger">DELETE</button>
+        {{form.as_p}}
+        <button class="btn btn-secondary">UPDATE</button>
+        <button class="btn btn-danger">DELETE</button>
+    </form>
 </div>
 
-</form>
-
+{% else %}
+<p>You need to login or register to begin editing and creating posts</p>
+<button class="btn btn-secondary text-decoration-none"><a href="{% url 'register' %}">REGISTER</a></button>
+<br>
+<button class="btn btn-secondary text-decoration-none"><a href="{% url 'login' %}">LOGIN</a></button>
+{% endif %}
 {% endblock %}

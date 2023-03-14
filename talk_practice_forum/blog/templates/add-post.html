@@ -2,7 +2,7 @@
 {% block title %} ADD A POST... {% endblock %}
 {% block content %}
     
-
+{% if user.is_authenticated %}
 <h1>ADD A POST...</h1>
 
 <div class="form-group">
@@ -24,7 +24,11 @@
     <button class="btn btn-secondary">PUBLISH</button>
     
 </div>
-
 </form>
-
+{% else %}
+<p>You need to login or register to begin editing and creating posts</p>
+<button class="btn btn-secondary text-decoration-none"><a href="{% url 'register' %}">REGISTER</a></button>
+<br>
+<button class="btn btn-secondary text-decoration-none"><a href="{% url 'login' %}">LOGIN</a></button>
+{% endif %}
 {% endblock %}
