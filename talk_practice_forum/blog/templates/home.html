@@ -10,7 +10,7 @@
     <br>
     {{ post.subtitle }}
     <br>
-    <small>{{ post.category }}</small>
+    <small><a href="{% url 'category' post.category %}">{{ post.category }}</a></small>
     <br>
     {{ post.body|slice:"200"|safe }}
     <br>
