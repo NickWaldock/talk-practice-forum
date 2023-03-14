@@ -8,8 +8,8 @@
     <a href="{% url 'article-detail' post.pk %}">{{ post.title }}</a>
     {{ post.author }}
     {{ post.body }}
-    <br>
     <small><a href="{% url 'update-post' post.pk %}">EDIT POST</a></small>
+    <small><a href="{% url 'delete-post' post.pk %}">DELETE POST</a></small>
 <br>
 
 {% endfor %}
